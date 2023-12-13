@@ -14,7 +14,8 @@
         }
 
         h1 {
-            color: #428bca;
+            text-align: center;
+            color: #7e490d;
         }
 
         p {
@@ -22,7 +23,7 @@
         }
 
         strong {
-            color: #5bc0de;
+            color: #04222b;
         }
 
         button {
@@ -66,11 +67,12 @@
     <p><strong>Name:</strong> {{ contact.name }}</p>
     <p><strong>Email:</strong> {{ contact.email }}</p>
     <p><strong>Notes:</strong> {{ contact.notes }}</p>
+    <p><strong>Created Time:</strong> {{ contact.created_at }}</p>
     <!-- Add other fields as needed -->
     
-    <a href="{% url 'contact_management:contact_list' %}"><button type="button">Home</button></a>
-    <a href="{% url 'contact_management:contact_edit' pk=contact.pk %}"><button type="button">Edit</button></a>
-    <a href="{% url 'contact_management:contact_delete' pk=contact.pk %}"><button type="button">Delete</button></a>
+    <a href="{% url 'contact_management:contact_list' %}"><button type="button" style="background-color:rgb(16, 114, 160); border-color:rgb(16, 114, 160); color:white">Home</button></a>
+    <a href="{% url 'contact_management:contact_edit' pk=contact.pk %}"><button type="button" style="background-color:rgb(191, 207, 43); border-color:rgb(16, 114, 160); color:white">Edit</button></a>
+    <a href="{% url 'contact_management:contact_delete' pk=contact.pk %}"><button type="button" style="background-color:rgb(224, 50, 37); border-color:rgb(16, 114, 160); color:white">Delete</button></a>
 
 </body>
 <footer class="footer">&copy; Created by Sai Preethi Poka</footer>

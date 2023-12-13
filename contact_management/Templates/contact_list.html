@@ -10,7 +10,7 @@
         h1 {
             text-align: center;
             margin-top: 20px;
-            color: #ff8800; 
+            color: #7e490d; 
         }
         table {
             border-collapse: collapse;
@@ -21,10 +21,12 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
+            color: #2f2f57c2;
         }
 
         th {
             background-color: #f2f2f2;
+            color: #2f2f57c2;
         }
 
         .action-buttons {
@@ -34,7 +36,7 @@
         .action-buttons a {
             margin-right: 10px;
             text-decoration: none;
-            color: #0000ff;
+            color: #7979c5c2;
         }
         /* Style for the "Create a New Contact" button */
         a {
@@ -47,7 +49,7 @@
             margin-bottom: 10px;
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #3498db; /* Background color for the button */
+            background-color: #136460; /* Background color for the button */
             color: white; /* Text color */
             border: none;
             border-radius: 5px;
@@ -79,7 +81,6 @@
     <table>
         <thead>
             <tr>
-                <th>Actions</th>
                 <th>Contact Name</th>
                 <th>Email</th>
                 <th>Created Time</th>
@@ -88,11 +89,13 @@
         <tbody>
             {% for contact in object_list %}
                 <tr>
-                    <td class="action-buttons">
+                    <!-- <td class="action-buttons">
                         <a href="{% url 'contact_management:contact_detail' pk=contact.pk %}" title="View Details"><i class="fas fa-eye"></i></a>
                         <a href="{% url 'contact_management:contact_delete' pk=contact.pk %}" title="Delete"><i class="fas fa-trash"></i></a>
-                    </td>
-                    <td>{{ contact.name }}</td>
+                    </td> -->
+                    <td class="action-buttons"><a href="{% url 'contact_management:contact_detail' pk=contact.pk %}" title="View Details"><i class="fas fa-pencil"></i></a>
+                        <a href="{% url 'contact_management:contact_delete' pk=contact.pk %}" title="Delete"><i class="fas fa-trash"></i></a>
+                        {{ contact.name }}</td>
                     <td>{{ contact.email }}</td>
                     <td>{{ contact.created_at|date:"M. d, Y, g:i a" }}</td>
                 </tr>
