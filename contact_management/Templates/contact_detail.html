@@ -1,10 +1,10 @@
-<!-- Contact_management/templates/Contact_form.html -->
+<!-- Contact_management/templates/Contact_detail.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Contact</title>
+    <title>Contact Details</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,24 +14,16 @@
         }
 
         h1 {
-            color: #428bca;
+            text-align: center;
+            color: #7e490d;
         }
 
-        form {
-            margin-bottom: 20px;
+        p {
+            margin-bottom: 10px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 50%;
-            padding: 8px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
+        strong {
+            color: #04222b;
         }
 
         button {
@@ -40,6 +32,7 @@
             padding: 8px 12px;
             border: none;
             cursor: pointer;
+            margin-right: 10px;
         }
 
         a {
@@ -64,20 +57,24 @@
             text-align: center;
             color: green;
         }
+
         /* Add any additional styling as needed */
     </style>
 </head>
 <body>
-    <h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Contact</h1>
+    <h1>Contact Details</h1>
     
-    <form method="post" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
-
-    <a href="{% url 'contact_management:contact_list' %}"><button type="button">Back to Contact List</button></a>
+    <p><strong>Name:</strong> {{ contact.name }}</p>
+    <p><strong>Email:</strong> {{ contact.email }}</p>
+    <p><strong>Notes:</strong> {{ contact.notes }}</p>
+    <p><strong>Created Time:</strong> {{ contact.created_at }}</p>
+    <!-- Add other fields as needed -->
+    
+    <a href="{% url 'contact_management:contact_list' %}"><button type="button" style="background-color:rgb(16, 114, 160); border-color:rgb(16, 114, 160); color:white">Home</button></a>
+    <a href="{% url 'contact_management:contact_edit' pk=contact.pk %}"><button type="button" style="background-color:rgb(191, 207, 43); border-color:rgb(16, 114, 160); color:white">Edit</button></a>
+    <a href="{% url 'contact_management:contact_delete' pk=contact.pk %}"><button type="button" style="background-color:rgb(224, 50, 37); border-color:rgb(16, 114, 160); color:white">Delete</button></a>
 
 </body>
 <footer class="footer">&copy; Created by Sai Preethi Poka</footer>
 </html>
+
