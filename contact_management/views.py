@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView,
 from .models import Contact
 from .forms import ContactForm
 
@@ -19,4 +19,10 @@ class ContactCreateView(CreateView):
 class ContactDetailView(DetailView):
     model = Contact
     template_name = 'contact_detail.html'
+
+class ContactUpdateView(UpdateView):
+    model = Contact
+    template_name = 'contact_form.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('Contacts:contact_list')
 
